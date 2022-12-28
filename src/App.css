@@ -1,0 +1,113 @@
+body {
+  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+  font-size: 1.3em;
+  color: #fff;
+  text-shadow: .1em .1em 0 rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  background-image: linear-gradient(90deg, rgba(25, 136, 247, 0.25) 0%, rgba(247, 25, 136, 0.4) 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  font-size: 3em;
+  color: #000066;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.2em;
+  text-align: center;
+  color: #fff;
+  font-size: 5em;
+  margin: 30px;
+
+}
+
+main {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#weather {
+  border: rgba(59, 48, 48, 0.692) 2px solid;
+  -webkit-box-shadow: 5px 6px 10px 4px #7F7F7F;
+  box-shadow: 5px 6px 10px 4px #7F7F7F;
+  border-radius: 18px;
+  width: 60vh;
+  background-color: #000066;
+  text-align: center;
+  font-size: 23px;
+  margin: 20px;
+}
+
+#location {
+  height: 107px;
+  font-size: 30px;
+}
+
+#inputArea {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
+#userInput {
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: aliceblue;
+  border: grey 2px solid;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  width: 220px;
+
+}
+
+#userWeather {
+  width: 400px;
+}
+
+#userWeatherArea {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 18px;
+  margin-left: 3px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  border: grey 2px solid;
+  width: 180px;
+}
+
+#userInput:hover {
+  border-color: #000066;
+  transition-duration: 0.5s;
+}
+
+button:hover {
+  background-color: #000066;
+  color: white;
+  transition-duration: .5s;
+}
+
+#mapArea {
+  display: flex;
+  justify-content: center;
+}
+
+#map {
+  height: 400px;
+  width: 100vh;
+  border: 3px #000066 solid;
+  border-radius: 3px;
+  -webkit-box-shadow: 5px 6px 10px 4px #7F7F7F;
+  box-shadow: 5px 6px 10px 4px #7F7F7F;
+}
