@@ -1,5 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Map from './map'
+import env from "react-dotenv";
 
 function App() {
   const [city, setCity] = useState('');
@@ -17,7 +19,7 @@ function App() {
   }
 
   const getWeather = () => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=55c08174bf03994d6ad185d5dd2010ce')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + env.WEATHER_API)
       .then(function (resp) { return resp.json() })
       .then(function (data) {
         drawWeather(data);
@@ -30,11 +32,12 @@ function App() {
 
   //get weather details based on geolocation
   function geoLocation() {
+    console.log("weather api: " +  + env.WEATHER_API)
     navigator.geolocation.getCurrentPosition(geoWeatherInfo);
 
     function geoWeatherInfo(position) {
 
-      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=55c08174bf03994d6ad185d5dd2010ce')
+      fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=' + env.WEATHER_API)
         .then(function (resp) { return resp.json() })
         .then(function (data) {
           drawWeather(data);
@@ -45,35 +48,6 @@ function App() {
         });
     }
   }
-
-  const google = window.google;
-
-
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      initMap(position.coords.latitude, position.coords.longitude);
-      function initMap(lat, lng) {
-
-        var myLatLng = {
-          lat,
-          lng
-        };
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: myLatLng
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-        });
-      }
-    },
-    function errorCallback(error) {
-      console.log(error)
-    }
-  );
 
   useEffect(() => {
     geoLocation()
@@ -108,10 +82,9 @@ function App() {
         <h1 className="header">Your Location</h1>
       </div>
       <div id="mapArea">
-        <p id="map">
-        </p>
-
+        <Map />
       </div>
+
     </>
   );
 }
